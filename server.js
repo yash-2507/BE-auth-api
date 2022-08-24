@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 // const { verifyJwt } = require('./middleware/auth');
 const User = require('./models/User');
+const { verifyJwt } = require('./middleware/auth');
 dotenv.config();
 
 // Connect to database
@@ -39,7 +40,7 @@ app.use('/auth', require('./routes/auth'));
 app.get('/me', (req, res) => {
     res.status(200).json({ success: true, message: "Yeah! It's Protected..." });
 });
-app.use('/todos', require('./routes/todo'));
+app.use('/todos', verifyJwt, require('./routes/todo'));
 
 // Connecting to MongoDB and starting Server
 mongoose.connection.once('open', () => {

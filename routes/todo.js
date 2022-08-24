@@ -7,8 +7,8 @@ const router = require('express').Router();
 
 router.get('/', getTodo);
 router.post('/create', createTodo);
-router.get('/:id', getById);
-router.post('/delete/:id', deleteTodo)
-router.post('/edit/:id', updateTodo)
+router.get('/:Todoid', getById);
+router.post('/delete/:Todoid', deleteTodo);
+router.post('/edit/:Todoid', updateTodo);
 
 module.exports = router;

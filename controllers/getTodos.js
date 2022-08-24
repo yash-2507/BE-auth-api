@@ -2,8 +2,8 @@ const User = require('../models/User');
 
 const getTodo = async (req, res) => {
     const { status } = req.query;
-    const { email } = req.body;
-    const user = await User.findOne({ email });
+    const { id } = req.user;
+    const user = await User.findById(id);
     const todo = user.todo;
     if (status === undefined) {
         return res.status(200).json({ success: true, todo });

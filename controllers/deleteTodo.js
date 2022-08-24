@@ -1,17 +1,17 @@
 const User = require('../models/User');
 
 const deleteTodo = async (req, res) => {
-    const { id } = req.params;
-    const { email } = req.body;
-    const user = await User.findOne({ email });
+    const { Todoid } = req.params;
+    const {id} = req.user;
+    const user = await User.findById(id);
     let todos = user.todo;
     todos.map((el) => {
-        if (el._id == id) {
+        if (el._id == Todoid) {
             el.deleted = true;
         }
         return el;
     });
-    await User.updateOne({ email }, { todo: todos });
+    await User.updateOne({_id: id}, { todo: todos });
     res.status(200).json({ success: true });
 };
 
