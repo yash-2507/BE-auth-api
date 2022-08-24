@@ -29,7 +29,7 @@ const login = async (req, res) => {
 
     res.status(200)
         .cookie("token", token, option)
-        .json({ success: true, token, email });
+        .json({ success: true, token });
 };
 
 module.exports = login;

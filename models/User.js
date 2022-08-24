@@ -28,6 +28,10 @@ const UserSchema = new Schema({
                 tagname: String,
                 status: { type: String, enum: ['pending', 'done'] },
                 tag: { type: String, enum: ['personal', 'official', 'family'] },
+                deleted: {
+                    type: Boolean,
+                    default: false,
+                },
             },
         ],
         default: [],
