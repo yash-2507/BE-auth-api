@@ -23,8 +23,8 @@ app.use(cookieParser());
 
 // CORS
 const corsOptions = {
-    origin: true, //included origin as true
-    credentials: true, //included credentials as true
+    origin: true, 
+    credentials: true,
 };
 app.use(cors(corsOptions));
 
