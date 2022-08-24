@@ -39,7 +39,7 @@ app.use('/auth', require('./routes/auth'));
 app.get('/me', verifyJwt, (req, res) => {
     res.status(200).json({ success: true, message: "Yeah! It's Protected..." });
 });
-app.use('/todos', verifyJWT, require('./routes/todo'));
+app.use('/todos', verifyJwt, require('./routes/todo'));
 
 // Connecting to MongoDB and starting Server
 mongoose.connection.once('open', () => {
